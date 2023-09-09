@@ -1,52 +1,79 @@
-abstract class Animal {
+class Cat implements Animal {
     private String name;
     private String type;
     private String sound;
-    public Animal(String name, String type, String sound) {
+    private String eyeColor;
+
+    public Cat(String name, String type, String sound, String eyeColor) {
         this.name = name;
         this.type = type;
         this.sound = sound;
+        this.eyeColor = eyeColor;
     }
+    @Override
     public String getName()
     {
         return name;
     }
+    @Override
     public String getType()
     {
         return type;
     }
-    public String getSound() { return sound;}
-
-    public void setName(String name) { this.name = name;}
-    public void setType(String type) { this.type = type;}
-    public void setSound(String sound) { this.sound = sound;}
+    @Override
+    public String getSound()
+    {
+        return sound;
+    }
+    @Override
+    public void setName(String name) {
+        this.name = name;
+    }
+    @Override
+    public void setType(String type) {
+        this.type = type;
+    }
+    @Override
+    public void setSound(String sound) {
+        this.sound = sound;
+    }
+    @Override
     public void run() {
         System.out.println(name + " беги!");
     }
+
+    @Override
     public void doCommand() {
         System.out.println(name + " выполняй команду!");
     }
+
+    @Override
     public void eat() {
         System.out.println(name + " кушац");
     }
+
+    @Override
     public void sleep() {
         System.out.println(name + " спать");
     }
-    public abstract void say();
 
     @Override
-    public String toString()
-    {
-        return "Имя: " + this.name + "\nВид: " + this.type + "\nИздаваемый звук: " +  this.sound + "\n";
+    public void say() {
+        System.out.println(getSound());
+    }
+
+    @Override
+    public String toString() {
+        return "Имя: " + getName() + "\nВид: " + getType() + "\nИздаваемый звук: " + getSound() + "\n";
     }
 
     @Override
     public boolean equals(Object o)
     {
         boolean result = false;
-        if( o!=null && o instanceof Animal a)
+        if( o!=null && o instanceof Cat cat)
         {
-            if(name == a.name && type == a.type && sound == a.sound)
+            if(name == cat.name && type == cat.type && sound == cat.sound && eyeColor == cat.eyeColor)
             {
                 result = true;
             }
@@ -55,41 +82,172 @@ abstract class Animal {
     }
 }
 
-class Cat extends Animal {
-    private String eyeColor;
-    public Cat(String name, String type, String sound, String eyeColor) {
-        super(name, type, sound);
-        this.eyeColor = eyeColor;
-    }
-    @Override
-    public void say() {
-        System.out.println(getSound());
-    }
-}
+class Dog implements Animal {
 
-class Dog extends Animal {
+    private String name;
+    private String type;
+    private String sound;
     private int weight;
     public Dog(String name, String type, String sound, int weight) {
-        super(name, type, sound);
+        this.name = name;
+        this.type = type;
+        this.sound = sound;
         this.weight = weight;
     }
     @Override
+    public String getName()
+    {
+        return name;
+    }
+    @Override
+    public String getType()
+    {
+        return type;
+    }
+    @Override
+    public String getSound()
+    {
+        return sound;
+    }
+    @Override
+    public void setName(String name) {
+        this.name = name;
+    }
+    @Override
+    public void setType(String type) {
+        this.type = type;
+    }
+    @Override
+    public void setSound(String sound) {
+        this.sound = sound;
+    }
+    @Override
+    public void run() {
+        System.out.println(name + " беги!");
+    }
+
+    @Override
+    public void doCommand() {
+        System.out.println(name + " выполняй команду!");
+    }
+
+    @Override
+    public void eat() {
+        System.out.println(name + " кушац");
+    }
+
+    @Override
+    public void sleep() {
+        System.out.println(name + " спать");
+    }
+
+    @Override
     public void say() {
         System.out.println(getSound());
     }
+
+    @Override
+    public String toString() {
+        return "Имя: " + getName() + "\nВид: " + getType() + "\nИздаваемый звук: " + getSound() + "\n";
+    }
+
+    @Override
+    public boolean equals(Object o)
+    {
+        boolean result = false;
+        if( o!=null && o instanceof Dog dog)
+        {
+            if(name == dog.name && type == dog.type && sound == dog.sound && weight == dog.weight)
+            {
+                result = true;
+            }
+        }
+        return result;
+    }
 }
 
-class Horse extends Animal {
+class Horse implements Animal {
+    private String name;
+    private String type;
+    private String sound;
     private int weight;
     private int runningSpeed;
     public Horse(String name, String type, String sound, int weight, int runningSpeed) {
-        super(name, type, sound);
+        this.name = name;
+        this.type = type;
+        this.sound = sound;
         this.weight = weight;
         this.runningSpeed = runningSpeed;
     }
     @Override
+    public String getName()
+    {
+        return name;
+    }
+    @Override
+    public String getType()
+    {
+        return type;
+    }
+    @Override
+    public String getSound()
+    {
+        return sound;
+    }
+    @Override
+    public void setName(String name) {
+        this.name = name;
+    }
+    @Override
+    public void setType(String type) {
+        this.type = type;
+    }
+    @Override
+    public void setSound(String sound) {
+        this.sound = sound;
+    }
+    @Override
+    public void run() {
+        System.out.println(name + " беги!");
+    }
+
+    @Override
+    public void doCommand() {
+        System.out.println(name + " выполняй команду!");
+    }
+
+    @Override
+    public void eat() {
+        System.out.println(name + " кушац");
+    }
+
+    @Override
+    public void sleep() {
+        System.out.println(name + " спать");
+    }
+
+    @Override
     public void say() {
         System.out.println(getSound());
+    }
+
+    @Override
+    public String toString() {
+        return "Имя: " + getName() + "\nВид: " + getType() + "\nИздаваемый звук: " + getSound() + "\n";
+    }
+
+    @Override
+    public boolean equals(Object o)
+    {
+        boolean result = false;
+        if( o!=null && o instanceof Horse horse)
+        {
+            if(name == horse.name && type == horse.type && sound == horse.sound && weight == horse.weight && runningSpeed == horse.runningSpeed)
+            {
+                result = true;
+            }
+        }
+        return result;
     }
 }
 
@@ -97,7 +255,6 @@ public class Main {
     public static void main(String[] args) {
 
         Animal[] animals = new Animal[9];
-
         animals[0] = new Cat("Мурзик", "Кот", "мяу", "Зеленый");
         animals[1] = new Dog("Султан", "Собака", "гав", 25);
         animals[2] = new Horse("Осел", "Лошадь", "пфпфпф", 550, 70);
